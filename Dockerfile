@@ -20,4 +20,4 @@ RUN dotnet publish "dotnet-movie-api.csproj" -c $BUILD_CONFIGURATION -o /app/pub
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "dotnet-movie-api.dll"]
+ENTRYPOINT ["dotnet", "dotnet-movie-api.dll", "--launch-profile", "Docker"]
